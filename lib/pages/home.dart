@@ -36,10 +36,8 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      body: Container(
-        child: Column(
-          children: [],
-        ),
+      body: Column(
+        children: [],
       ),
     );
   }

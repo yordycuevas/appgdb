@@ -1,4 +1,7 @@
+import 'package:appgbd/service/database.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:random_string/random_string.dart';
 
 class Employee extends StatefulWidget {
   const Employee({super.key});
@@ -8,6 +11,9 @@ class Employee extends StatefulWidget {
 }
 
 class _EmployeeState extends State<Employee> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +53,7 @@ class _EmployeeState extends State<Employee> {
             Container(
               margin: EdgeInsets.only(top: 10.0),
               child: TextField(
+                controller: nameController,
                 decoration: InputDecoration(
                   hintText: "Enter your name",
                   border: OutlineInputBorder(
@@ -66,6 +73,7 @@ class _EmployeeState extends State<Employee> {
             Container(
               margin: EdgeInsets.only(top: 10.0),
               child: TextField(
+                controller: ageController,
                 decoration: InputDecoration(
                   hintText: "Enter your age",
                   border: OutlineInputBorder(
@@ -85,6 +93,7 @@ class _EmployeeState extends State<Employee> {
             Container(
               margin: EdgeInsets.only(top: 10.0),
               child: TextField(
+                controller: locationController,
                 decoration: InputDecoration(
                   hintText: "Enter your location",
                   border: OutlineInputBorder(
@@ -96,7 +105,27 @@ class _EmployeeState extends State<Employee> {
             SizedBox(height: 10.0),
             Center(
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    String id = randomAlphaNumeric(10);
+                    Map<String, dynamic> employeeInfoMap = {
+                      "name": nameController.text,
+                      "age": ageController.text,
+                      "location": locationController.text,
+                    };
+                    await DatabaseMethods()
+                        .addEmployeeDatails(employeeInfoMap, id)
+                        .then((value) {
+                      Fluttertoast.showToast(
+                          msg:
+                              "Employee details has been uploaded successfully!",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.CENTER,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0);
+                    });
+                  },
                   child: Text(
                     "Submit",
                     style: TextStyle(
