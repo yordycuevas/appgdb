@@ -67,7 +67,7 @@ class _EmployeeState extends State<Employee> {
               margin: EdgeInsets.only(top: 10.0),
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: "Enter your name",
+                  hintText: "Enter your age",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12.0),
                   ),
@@ -86,7 +86,7 @@ class _EmployeeState extends State<Employee> {
               margin: EdgeInsets.only(top: 10.0),
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: "Enter your name",
+                  hintText: "Enter your location",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12.0),
                   ),

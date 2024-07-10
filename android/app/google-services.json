@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "890850668483",
+    "project_id": "appgbd-dce8b",
+    "storage_bucket": "appgbd-dce8b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890850668483:android:42892276e3eba821bd5776",
+        "android_client_info": {
+          "package_name": "com.example.appgbd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_IIuDdjezm9s8goTCCsnztuL0JW1l1L4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
