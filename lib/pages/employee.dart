@@ -102,18 +102,20 @@ class _EmployeeState extends State<Employee> {
                 ),
               ),
             ),
-            SizedBox(height: 10.0),
+            SizedBox(height: 25.0),
             Center(
               child: ElevatedButton(
                   onPressed: () async {
-                    String id = randomAlphaNumeric(10);
+                    // ignore: non_constant_identifier_names
+                    String Id = randomAlphaNumeric(10);
                     Map<String, dynamic> employeeInfoMap = {
                       "name": nameController.text,
                       "age": ageController.text,
+                      "Id": Id,
                       "location": locationController.text,
                     };
                     await DatabaseMethods()
-                        .addEmployeeDatails(employeeInfoMap, id)
+                        .addEmployeeDatails(employeeInfoMap, Id)
                         .then((value) {
                       Fluttertoast.showToast(
                           msg:
@@ -121,8 +123,8 @@ class _EmployeeState extends State<Employee> {
                           toastLength: Toast.LENGTH_SHORT,
                           gravity: ToastGravity.CENTER,
                           timeInSecForIosWeb: 1,
-                          backgroundColor: Colors.red,
-                          textColor: Colors.white,
+                          backgroundColor: Color.fromARGB(255, 118, 209, 145),
+                          textColor: const Color.fromARGB(255, 0, 0, 0),
                           fontSize: 16.0);
                     });
                   },
