@@ -73,6 +73,7 @@ class _EmployeeState extends State<Employee> {
             Container(
               margin: EdgeInsets.only(top: 10.0),
               child: TextField(
+                keyboardType: TextInputType.number,
                 controller: ageController,
                 decoration: InputDecoration(
                   hintText: "Enter your age",
@@ -115,7 +116,7 @@ class _EmployeeState extends State<Employee> {
                       "location": locationController.text,
                     };
                     await DatabaseMethods()
-                        .addEmployeeDatails(employeeInfoMap, Id)
+                        .addEmployeeDetails(employeeInfoMap, Id)
                         .then((value) {
                       Fluttertoast.showToast(
                           msg:
